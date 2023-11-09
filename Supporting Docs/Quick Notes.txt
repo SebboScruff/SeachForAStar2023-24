@@ -2,3 +2,43 @@ Very very short-form notes for Search for a Star programming project:
 
 ----------------------------
 
+GAME IDEA NUMERO UNO -- FOCUS: GAMEPLAY PROGRAMMING
+	-> Context: You're on a really (infinitely) long, really empty train journey on your own, and you only have your phone (and the view form the window) for entertainment
+
+	-> General Gameplay: Toggle between free movement around a nice-looking environment, and playing minigames on your phone
+		-> When in Free Movement Mode, you control a first-person camera, and can walk around your train car (simple indoor environment with some seats, windows, etc)
+			-> Looking out the window reveals a constant procedurally-generated terrain outside - similar to slowroads.io
+			-> Constant traintrack rumbling background noise
+			-> WASD Movement, mouse camera
+
+		-> When you sit down in a chair, a button input lets you pull out your phone and enter Phone Mode
+			-> Phone Mode is entirely 2D, with a Main Menu (Home Screen) and some 2D Minigames (maybe 3-5 different minigames)
+				-> Player navigates the phone screen directly in-app using the cursor
+				-> When entering Phone Mode, there is a toggle for Full-Screen or In-Context (smaller screen within the player's camera) (MAYBE?)
+			-> Minigames are all inspired from very classic Mobile Games:
+				-> Run Run Run! - Endless Runner (Jetpack Joyride, Flappy Bird)
+				-> Smash the Fort! - Demolition Game (Angry Birds, Catapult King)
+				-> Stop Them! - Tower Defense (BTD, Kingdom Rush)
+			-> (Can use the default 3-Rings-And-An-Arrow graphic from base code as the phone's wallpaper)
+
+	-> Programming Aspects:
+		> Gameplay
+			>> Simple 3D FPC for Free Movement Mode
+			>> Specific and varied gameplay mechanics for each Minigame, demonstrating a range of techniques
+		> Graphics
+			>> Implement some fancy BlinnPhong shaders into environment and materials
+			>> Create a custom spritesheet animation system for some of the mobile games
+		> Physics
+			>> Implement a custom 2D Physics Engine for use in mobile games - 2D Rigidbodies & square/circle colliders
+			>> For Free Movement Mode, either use a custom Bounding Box collider for player, or use Bullet engine
+		> AI
+			>> Create a specific waypoint-based navigation system for Tower Defense Game
+			>> Towers in TD Game also have to have a basic AI system for target selection
+		> UI/UX
+			>> Each game will have its own specific UI
+			>> Phone Mode can either be a smaller screen within the game window itself, or take up the entire game window when opened (or toggle between)
+			>> When player is next to a seat on the train, a floating text prompt will appear ("Press P to bring out your Phone")
+			>> Phone Home Screen -> Click on Minigame Icon -> Minigame Opens -> Click Phone Home Button (or Esc key) -> Back to Home Menu -> Esc Key -> Back to Free Movement
+		> Other
+			>> Procedurally generate external terrain and decorate with trees, train tracks, etc
+			>> Terrain rolls backwards to give illusion of train moving forwards (carriage doesn't actually move at all)
